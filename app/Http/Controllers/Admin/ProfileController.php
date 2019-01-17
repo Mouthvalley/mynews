@@ -7,15 +7,16 @@ use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
-    //
+  public function edit()
+  {
+    return view('admit.profile.edit');
+  }
+  public function update()
+  {
+    return redirect('admit/profile/edit');
+  }
 }
 
-public function edit()
-{
-  return view('admit.profile.edit');
-}
-public function update()
-{
-  return redirect('admit/profile/edit');
-}
-//コメント
+
+//publicはclassの中で
+//unexpected:枠外にある
