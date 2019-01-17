@@ -18,3 +18,4 @@ public function update()
 {
   return redirect('admit/profile/edit');
 }
+//コメント
