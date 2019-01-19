@@ -15,8 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-    
+    <link href="{{ asset('css/profile.css') }}" rel="styleshee
+
   </head>
   <body>
     <div id="app">
