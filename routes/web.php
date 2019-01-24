@@ -18,7 +18,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'admin/profile/create@add')->middleware('auth');
     Route::create('news/create', 'Admin\ProfileController@create')->middleware('auth');
 });
-
+//admin/profile/create がどこにあるのかイマイチ把握できていません。
 
 /* http://....com/admin/news/create なら Admin\NewsController@addを実行する
 
