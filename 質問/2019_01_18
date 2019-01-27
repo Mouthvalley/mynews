@@ -1,0 +1,163 @@
+Last login: Fri Jan 25 10:30:53 on ttys000
+taniguchiyamato-no-MacBook-Air:~ taniguchiyamato$ pwd
+/Users/taniguchiyamato
+taniguchiyamato-no-MacBook-Air:~ taniguchiyamato$ cd ~/desktop/techboost/mynews/
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ ls
+app			composer.lock		dunmp.sql		phpunit.xml		routes			vendor
+artisan			config			node_modules		public			server.php		webpack.mix.js
+bootstrap		create.blade.php	package-lock.json	readme.md		storage			質問箱
+composer.json		database		package.json		resources		tests
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ php artisan migrate
+
+   Illuminate\Database\QueryException  : SQLSTATE[HY000] [1045] Access denied for user 'techboost'@'localhost' (using password: YES) (SQL: select * from information_schema.tables where table_schema = mynews and table_name = migrations)
+
+  at /Users/taniguchiyamato/Desktop/techboost/mynews/vendor/laravel/framework/src/Illuminate/Database/Connection.php:664
+    660|         // If an exception occurs when attempting to run a query, we'll format the error
+    661|         // message to include the bindings with SQL, which will make this exception a
+    662|         // lot more helpful to the developer instead of just the database's errors.
+    663|         catch (Exception $e) {
+  > 664|             throw new QueryException(
+    665|                 $query, $this->prepareBindings($bindings), $e
+    666|             );
+    667|         }
+    668|
+
+  Exception trace:
+
+  1   PDOException::("SQLSTATE[HY000] [1045] Access denied for user 'techboost'@'localhost' (using password: YES)")
+      /Users/taniguchiyamato/Desktop/techboost/mynews/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:70
+
+  2   PDO::__construct("mysql:host=127.0.0.1;port=3306;dbname=mynews", "techboost", "yamato1997", [])
+      /Users/taniguchiyamato/Desktop/techboost/mynews/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:70
+
+  Please use the argument -v to see more details.
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ php artisan migrate:reset
+
+   Illuminate\Database\QueryException  : SQLSTATE[HY000] [1045] Access denied for user 'techboost'@'localhost' (using password: YES) (SQL: select * from information_schema.tables where table_schema = mynews and table_name = migrations)
+
+  at /Users/taniguchiyamato/Desktop/techboost/mynews/vendor/laravel/framework/src/Illuminate/Database/Connection.php:664
+    660|         // If an exception occurs when attempting to run a query, we'll format the error
+    661|         // message to include the bindings with SQL, which will make this exception a
+    662|         // lot more helpful to the developer instead of just the database's errors.
+    663|         catch (Exception $e) {
+  > 664|             throw new QueryException(
+    665|                 $query, $this->prepareBindings($bindings), $e
+    666|             );
+    667|         }
+    668|
+
+  Exception trace:
+
+  1   PDOException::("SQLSTATE[HY000] [1045] Access denied for user 'techboost'@'localhost' (using password: YES)")
+      /Users/taniguchiyamato/Desktop/techboost/mynews/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:70
+
+  2   PDO::__construct("mysql:host=127.0.0.1;port=3306;dbname=mynews", "techboost", "yamato1997", [])
+      /Users/taniguchiyamato/Desktop/techboost/mynews/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:70
+
+  Please use the argument -v to see more details.
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ mysql -u root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 5.7.24 Homebrew
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use mynews;
+Database changed
+mysql> create user techboost IDENTIFIED BY 'techboost';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> grant all privileges on mynews.* to 'techboost';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> quit
+Bye
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ atom .
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ mysql --version
+mysql  Ver 14.14 Distrib 5.7.24, for osx10.14 (x86_64) using  EditLine wrapper
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ php artisan config:cache
+Configuration cache cleared!
+Configuration cached successfully!
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ php artisan make:auth
+
+ The [auth/login.blade.php] view already exists. Do you want to replace it? (yes/no) [no]:
+ > yes
+
+ The [auth/register.blade.php] view already exists. Do you want to replace it? (yes/no) [no]:
+ > yes
+
+ The [auth/verify.blade.php] view already exists. Do you want to replace it? (yes/no) [no]:
+ > yes
+
+ The [auth/passwords/email.blade.php] view already exists. Do you want to replace it? (yes/no) [no]:
+ > yes
+
+ The [auth/passwords/reset.blade.php] view already exists. Do you want to replace it? (yes/no) [no]:
+ > yes
+
+ The [layouts/app.blade.php] view already exists. Do you want to replace it? (yes/no) [no]:
+ > yes
+
+ The [home.blade.php] view already exists. Do you want to replace it? (yes/no) [no]:
+ > yes
+
+Authentication scaffolding generated successfully.
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ php artisan migrate
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table
+Migrating: 2019_01_24_061939_create_news_table
+Migrated:  2019_01_24_061939_create_news_table
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ mysql -u root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 5.7.24 Homebrew
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> describe mynews.news;
++------------+------------------+------+-----+---------+----------------+
+| Field      | Type             | Null | Key | Default | Extra          |
++------------+------------------+------+-----+---------+----------------+
+| id         | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| title      | varchar(255)     | NO   |     | NULL    |                |
+| body       | varchar(255)     | NO   |     | NULL    |                |
+| image_path | varchar(255)     | YES  |     | NULL    |                |
+| created_at | timestamp        | YES  |     | NULL    |                |
+| updated_at | timestamp        | YES  |     | NULL    |                |
++------------+------------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> exit;
+Bye
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ php artisan migrate:rollback
+Rolling back: 2019_01_24_061939_create_news_table
+Rolled back:  2019_01_24_061939_create_news_table
+Rolling back: 2014_10_12_100000_create_password_resets_table
+Rolled back:  2014_10_12_100000_create_password_resets_table
+Rolling back: 2014_10_12_000000_create_users_table
+Rolled back:  2014_10_12_000000_create_users_table
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ php artisan make:model News
+Model created successfully.
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ atom
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ cp -rp resources/lang/en resources/lang/ja
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$ php artisan serv
+Laravel development server started: <http://127.0.0.1:8000>
+[Sun Jan 27 10:39:44 2019] 127.0.0.1:52372 [200]: /favicon.ico
+[Sun Jan 27 10:39:48 2019] 127.0.0.1:52380 [200]: /favicon.ico
+^C
+taniguchiyamato-no-MacBook-Air:mynews taniguchiyamato$
