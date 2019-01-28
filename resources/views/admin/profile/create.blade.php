@@ -1,3 +1,5 @@
+@extends('layouts.profile')
+
 @section('title', '入力フォーム')
 
 @section('content')
@@ -5,7 +7,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>入力フォーム</h2>
-                <form action="{{ action('Admin\NewsController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
                         <ul>
@@ -45,7 +47,3 @@
         </div>
     </div>
 @endsection
-
-/*参考ページ
-*https://qiita.com/makies/items/2ab24188e7f8482bfddc
-*/

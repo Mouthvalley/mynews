@@ -1,8 +1,0 @@
-１）
-atomで”admin/profile/create”がどこにあるのか、パッと見分からなかったので、
-$ find / -name '`admin/profile/create*'
-を上記をターミナルで実行してみたのですが、上手く探せませんでした。
-何が原因でしょうか。
-
-以下、参考ページ
-https://qiita.com/ottyajp/items/1ac218164f1daf643262

@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create', 'admin/profile/create@add')->middleware('auth');
+    Route::get('profile/create', 'Admin\ProfileController@create')->middleware('auth');
     Route::post('news/create', 'Admin\ProfileController@create')->middleware('auth');
     Route::get('news', 'Admin\NewsController@index')->middleware('auth');
 });

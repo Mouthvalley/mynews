@@ -51,4 +51,32 @@ class NewsController extends Controller
       }
       return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
+
+  public function edit(Request $request)
+  {
+      // News Modelからデータを取得する
+      $news = News::find($request->id);
+
+      return view('admin.news.edit', ['news_form' => $news]);
+  }
+
+
+  public function update(Request $request)
+  {
+      $this->validate($request, News::$rules);
+      $news = News::find($request->id);
+      $news_form = $request->all();
+      if (isset($news_form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $news->image_path = basename($path);
+      } else {
+          $news->image_path = null;
+      }
+      // \Debugbar::info(isset($news_form['image']));
+      unset($news_form['_token']);
+      unset($news_form['image']);
+
+      $news->fill($news_form)->save();
+      return redirect('/admin/news/');
+  }
 }

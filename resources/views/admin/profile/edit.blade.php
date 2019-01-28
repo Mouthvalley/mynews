@@ -1,4 +1,4 @@
-@extends('views/layouts.profile')
+@extends('layouts.profile')
 
 @section('title', 'My プロフィール')
 
