@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'admin/profile/create@add')->middleware('auth');
     Route::post('news/create', 'Admin\ProfileController@create')->middleware('auth');
+    Route::get('news', 'Admin\NewsController@index')->middleware('auth');
 });
 //admin/profile/create がどこにあるのかイマイチ把握できていません。
 
