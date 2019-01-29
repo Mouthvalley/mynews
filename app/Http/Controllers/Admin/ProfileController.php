@@ -17,9 +17,19 @@ class ProfileController extends Controller
   }
   public function create(Request $request)
   {
+    $news->fill($news_form)->save();
     return redirect('admin/profile/create');
   }
 }
+  //Profileの方なので、変数名は$newsではなく、$profileに変えた方がよい。
+
+  /*create(Request $request)=このメソッドは$requestという引数をRequest型で受け取る
+    *データベースに保存の箇所は、
+    *NewsController
+    *$news->fill($form);
+    *$news->save();
+  */
+
 
 //public function 名 を同じ function にはできない。
 //publicはclassの中。unexpected:枠外にあるという意味
