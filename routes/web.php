@@ -18,8 +18,13 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('profile/create', 'Admin\ProfileController@create')->middleware('auth');
     Route::post('news/create', 'Admin\ProfileController@create')->middleware('auth');
     Route::get('news', 'Admin\NewsController@index')->middleware('auth');
+    Route::get('news/edit', 'Admin\NewsController@edit')->middleware('auth');
+    Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth');
+    Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');
 });
-//admin/profile/create がどこにあるのかイマイチ把握できていません。
+/*admin/profile/create がどこにあるのかイマイチ把握できていません。
+  *resource/views/admin/profile/create.blade.php
+*/
 
 /* http://....com/admin/news/create なら Admin\NewsController@addを実行する
 

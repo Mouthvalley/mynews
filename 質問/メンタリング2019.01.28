@@ -1,0 +1,38 @@
+0)gitに関する注意
+git add . で挙げた後、URLを課題のとろこに貼る
+
+1)laravel 12
+@yield(@section) で開けて、@section で埋め込む
+https://qiita.com/makies/items/2ab24188e7f8482bfddc
+
+2)Laravel12
+"Class App\Http\Controllers\admin/profile/create does not exist"
+/create はfunction名
+
+3)Laravel12
+web.php を訂正
+【書き方】
+'Admin\ProfileController@create'
+'大文字スタート\(バックスラッシュ opiton+¥)'
+Route::get('news/create', 'Admin\ProfileController@create')->middleware('auth'); を訂正
+Route::get('profile/create', 'Admin\ProfileController@create')->middleware('auth'); を訂正
+
+4)
+Blade は View で出力
+
+5)
+@create @のあとはAcution名
+
+6)
+create.blade.php にレイアウト(@extends('layouts.profile'))を追加
+@extends('layouts.profile') を訂正
+訂正前)@extends('views/layouts.profile')
+viewsがいらない
+レイアウト名は '/' ではなく '.' を使用
+
+7)
+Bootstrap CSSのフレームワーク
+Sacc はCSSの
+
+8)
+API でツイッターから情報を持ってこれる

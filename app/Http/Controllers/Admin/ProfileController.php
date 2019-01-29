@@ -15,12 +15,11 @@ class ProfileController extends Controller
   {
     return redirect('admin/profile/edit');
   }
-  public function create()
+  public function create(Request $request)
   {
-    return view('admin/profile/create');
+    return redirect('admin/profile/create');
   }
 }
 
-
-//publicはclassの中で
-//unexpected:枠外にある
+//public function 名 を同じ function にはできない。
+//publicはclassの中。unexpected:枠外にあるという意味
