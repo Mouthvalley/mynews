@@ -7,6 +7,14 @@ use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
+
+  public function add()
+  {
+      return view('admin.profile.create');
+  }
+/*追加
+*Laravel09
+*/
   public function edit()
   {
     return view('admin.profile.edit');

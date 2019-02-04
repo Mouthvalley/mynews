@@ -12,6 +12,10 @@ class NewsController extends Controller
   public function add()
   {
     return view('admin.news.create');
+    /*Laravel11
+    *view(‘admin.news.create’); は
+    *admin/newsディレクトリ配下のcreate.blade.html というファイルを呼び出す という意味
+    */
   }
 
   public function create(Request $request)

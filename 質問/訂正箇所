@@ -1,0 +1,24 @@
+1)Laravel09
+追加(app/Http/Controllers/Admin/ProfileController.php)
+//Laravel09課題
+  public function add()
+  {
+      return view('admin.profile.create');
+  }
+//
+
+×2)Laravel10
+訂正(routes/web.php)
+Route::get('profile/create', 'Admin\NewsController@create')->middleware('auth');
+Route::post('news/create', 'Admin\NewsController@create')->middleware('auth');
+/*Admin\ProfileController → NewsController
+*Laravel10
+*/
+
+3)Laravel10 課題4
+追加(routes/web.php)
+Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
+/*追加
+*Laravel10 課題4
+*Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
+*/
