@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Profile;
 
 class ProfileController extends Controller
 {
@@ -25,8 +26,9 @@ class ProfileController extends Controller
   }
   public function create(Request $request)
   {
-    $news->fill($news_form)->save();
+    $profile = new Profile;
     return redirect('admin/profile/create');
+    //newを行う時は、useをしてあげる
   }
 }
   //Profileの方なので、変数名は$newsではなく、$profileに変えた方がよい。

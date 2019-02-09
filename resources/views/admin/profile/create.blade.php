@@ -19,25 +19,26 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="title">name</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="neme" value="{{ old('title') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="body">gender</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                            <input type="radio" name="gender" value="0">男性
+                            <input type="radio" name="gender" value="1">女性
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="title">hobby</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="text" name="hobby">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2" for="title">introduction</label>
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <textarea name="introduction" rows="8" cols="80"></textarea>
                         </div>
                     </div>
                     {{ csrf_field() }}

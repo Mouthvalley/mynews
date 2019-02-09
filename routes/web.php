@@ -16,13 +16,16 @@ Route::get('/', function () {
 });
 Route::group(['prefix' => 'admin'], function() {
 //[‘prefix’ => ‘admin’] で http://XXXXXX.jp/admin/から始まるURL にしている
-    Route::get('profile/create', 'Admin\ProfileController@create')->middleware('auth');
-    Route::post('news/create', 'Admin\ProfileController@create')->middleware('auth');
+    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
+    Route::post('profile/create', 'Admin\ProfileController@create')->middleware('auth');
+    Route::post('news/create', 'Admin\NewsController@create')->middleware('auth');
+    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
     Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
     /*追加
     *Laravel10 課題4
     *Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
     */
+
     Route::get('news', 'Admin\NewsController@index')->middleware('auth');
     Route::get('news/edit', 'Admin\NewsController@edit')->middleware('auth');
     Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth');
