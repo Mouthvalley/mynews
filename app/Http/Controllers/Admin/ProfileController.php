@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Profile;
+use App\History;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -20,16 +22,26 @@ class ProfileController extends Controller
   {
     return view('admin.profile.edit');
   }
+
   public function update()
   {
     return redirect('admin/profile/edit');
+
+    $history = new History;
+    $history->news_id = $news->id;
+    $history->edited_at = Carbon::now();
+    $history->save();
+
+    return redirect('/admin/profile/');
   }
+
   public function create(Request $request)
   {
     $profile = new Profile;
     return redirect('admin/profile/create');
     //newを行う時は、useをしてあげる
   }
+
 }
   //Profileの方なので、変数名は$newsではなく、$profileに変えた方がよい。
 
