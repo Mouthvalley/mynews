@@ -1,0 +1,32 @@
+<?php
+/*
+
+1.
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class History extends Model
+{
+    protected $guarded = array('id');
+
+    public static $rules = array(
+        'news_id' => 'required',
+        'edited_at' => 'required',
+    );
+}
+
+'news_id' => 'required',
+'edited_at' => 'required',
+の意味、役割が分からない
+
+2.
+LAravel19課題より
+
+ターミナルでfront.scss　をコンパイルします。
+$ npm run watch
+次にViewテンプレートを実装します。
+
+$ npm run watch
+がファイルが存在しないとなっている。
+-bash: npm: command not found

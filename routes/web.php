@@ -21,6 +21,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('news/create', 'Admin\NewsController@create')->middleware('auth');
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
     Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
+    Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
     /*追加
     *Laravel10 課題4
     *Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
@@ -66,3 +67,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'NewsController@index');

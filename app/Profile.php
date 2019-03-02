@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
+  protected $guarded = array('id');
+  
   public static $rules = array(
         'name' => 'required',
         'gender' => 'required',
@@ -13,8 +15,8 @@ class Profile extends Model
         'introduction' => 'required',
     );
 
-  public function histories()
+  public function profile_histories()
   {
-    return $this->hasMany('App\History');
+    return $this->hasMany('App\ProfileHistory');
   }
 }

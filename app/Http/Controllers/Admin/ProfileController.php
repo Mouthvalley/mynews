@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Profile;
 use App\History;
 use Carbon\Carbon;
+use App\ProfileHistory;
 
 class ProfileController extends Controller
 {
@@ -18,28 +19,47 @@ class ProfileController extends Controller
 /*追加
 *Laravel09
 */
-  public function edit()
+  public function edit(Request $request)
   {
-    return view('admin.profile.edit');
+    $profile = Profile::find($request->id);
+    return view('admin.profile.edit', ['profile_form' => $profile]);
   }
 
-  public function update()
+  public function update(Request $request)
   {
-    return redirect('admin/profile/edit');
+    $this->validate($request, Profile::$rules);
+    $profile = Profile::find($request->id);
+    $profile_form = $request->all();
 
-    $history = new History;
-    $history->news_id = $news->id;
+    unset($profile_form['_token']);
+
+    //保存作業
+    $profile->fill($profile_form)->save();
+
+    $history = new ProfileHistory;
+    $history->profile_id = $profile->id;
     $history->edited_at = Carbon::now();
     $history->save();
 
-    return redirect('/admin/profile/');
+    return redirect('/admin/profile/edit');
   }
 
   public function create(Request $request)
   {
     $profile = new Profile;
-    return redirect('admin/profile/create');
+    $this->validate($request, Profile::$rules);
+
+    $form = $request->all();
+
+    // フォームから送信されてきた_tokenを削除する
+    unset($form['_token']);
+    // データベースに保存する
+    $profile->fill($form);
+    $profile->save();
+
     //newを行う時は、useをしてあげる
+    return redirect('/admin/profile/create');
+
   }
 
 }
