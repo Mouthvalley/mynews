@@ -29,20 +29,20 @@
       <div class="form-group row">
           <label class="col-md-2" for="body">gender</label>
           <div class="col-md-10">
-              <input type="radio" name="gender" value="0">男性
-              <input type="radio" name="gender" value="1">女性
+              <input type="radio" name="gender" value="0" @if ($profile_form->gender === '0') checked @endif>男性
+              <input type="radio" name="gender" value="1" @if ($profile_form->gender === '1') checked @endif>女性
           </div>
       </div>
       <div class="form-group row">
           <label class="col-md-2" for="title">hobby</label>
           <div class="col-md-10">
-              <input type="text" name="hobby">
+              <input type="text" name="hobby" value="{{ $profile_form->hobby }}">
           </div>
       </div>
       <div class="form-group row">
           <label class="col-md-2" for="title">introduction</label>
           <div class="col-md-10">
-              <textarea name="introduction" rows="8" cols="80"></textarea>
+              <textarea name="introduction" rows="8" cols="80">{{ $profile_form->introduction }}</textarea>
           </div>
       </div>
       <input type="hidden" name="id" value="{{ $profile_form->id }}">
