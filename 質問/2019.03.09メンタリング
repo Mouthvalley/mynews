@@ -1,0 +1,4 @@
+1.Profileを表示する
+Controllerを使って、news/profile.blade.phpを表示する
+
+2.web.phpでRuting

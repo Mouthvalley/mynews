@@ -102,4 +102,9 @@ class NewsController extends Controller
       $news->delete();
       return redirect('admin/news/');
   }
+
+  public function profile(Request $request)
+  {
+    return redirect('resources/views/news/profile');
+  }
 }

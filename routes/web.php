@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
     Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
     Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
+    Route::ppst('news/profile', 'Admin\NewsController@profile')->middleware('auth');
     /*追加
     *Laravel10 課題4
     *Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
