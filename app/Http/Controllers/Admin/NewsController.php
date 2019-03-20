@@ -55,6 +55,7 @@ class NewsController extends Controller
           // それ以外はすべてのニュースを取得する
           $posts = News::all();
       }
+      //動的な値を出す時は、変数($)が必要
       return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
 
@@ -90,7 +91,7 @@ class NewsController extends Controller
       $history->news_id = $news->id;
       $history->edited_at = Carbon::now();
       $history->save();
-
+      //redirectは
       return redirect('/admin/news/');
   }
 
@@ -101,10 +102,5 @@ class NewsController extends Controller
       // 削除する
       $news->delete();
       return redirect('admin/news/');
-  }
-
-  public function profile(Request $request)
-  {
-    return redirect('resources/views/news/profile');
   }
 }
